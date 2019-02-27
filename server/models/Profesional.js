@@ -9,19 +9,11 @@ const proSchema = new Schema(
     password: String,
     phone: Number,
     ubication: String,
-    rol: [{ type: String, enum: ["user", "profesional"] }],
-    typePro: [
-      {
-        type: String,
-        enum: [
-          "cristalero",
-          "fontanero",
-          "electricista",
-          "carpintero",
-          "albañil"
-        ]
-      }
-    ]
+    rol: String,
+    typePro: {
+      type: String,
+      enum: ["cristalero", "fontanero", "electricista", "carpintero", "albañil"]
+    }
   },
   {
     timestamps: {
