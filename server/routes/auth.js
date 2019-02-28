@@ -170,9 +170,17 @@ router.post("/signupPro", (req, res, next) => {
   });
 });
 
-router.get("/logout", (req, res) => {
+router.get("/logout", (req, res, next) => {
   req.logout();
-  res.redirect("/");
+  res.status(200).json({ message: "Log out success!" });
+});
+
+router.get("/loggedin", (req, res, next) => {
+  if (req.isAuthenticated()) {
+    res.status(200).json(req.user);
+    return;
+  }
+  res.status(403).json({ message: "Unauthorized" });
 });
 
 module.exports = router;

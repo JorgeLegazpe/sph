@@ -12,6 +12,7 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const flash = require("connect-flash");
 const passport = require("passport");
+const cors = require("cors");
 
 mongoose
   .connect(process.env.DB, { useNewUrlParser: true })
@@ -74,6 +75,13 @@ app.use(
     resave: true,
     saveUninitialized: true,
     store: new MongoStore({ mongooseConnection: mongoose.connection })
+  })
+);
+
+app.use(
+  cors({
+    credentials: true,
+    origin: ["http://localhost:3000"]
   })
 );
 app.use(flash());
