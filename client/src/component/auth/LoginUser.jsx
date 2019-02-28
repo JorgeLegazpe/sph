@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./LoginUser.css";
 import { Link } from "react-router-dom";
 
-export default class Home extends Component {
+export default class LoginUser extends Component {
   render() {
     return (
       <div className="App">
@@ -10,9 +10,9 @@ export default class Home extends Component {
         <form action="submit" onSubmit={this.handleSubmit}>
           <input
             type="text"
-            name="username"
+            name="email"
             id=""
-            placeholder="Username"
+            placeholder="Email"
             onChange={e => this.handleChange(e)}
           />
           <input
