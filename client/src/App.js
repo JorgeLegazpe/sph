@@ -6,6 +6,8 @@ import SignupUser from "./component/auth/SignupUser";
 import SignupPro from "./component/auth/SignupPro";
 import { Switch, Route } from "react-router-dom";
 import Navbar from "./component/Navbar";
+import Perfiluser from "./component/perfil/Perfiluser";
+import Perfilpro from "./component/perfil/Perfilpro";
 
 class App extends Component {
   render() {
@@ -18,6 +20,8 @@ class App extends Component {
             <Route exact path="/auth/loginUser" component={LoginUser} />
             <Route exact path="/auth/signup" component={SignupUser} />
             <Route exact path="/auth/signupPro" component={SignupPro} />
+            <Route exact path="/perfiluser" component={Perfiluser} />
+            <Route exact path="/perfilpro" component={Perfilpro} />
           </Switch>
         </div>
       </div>

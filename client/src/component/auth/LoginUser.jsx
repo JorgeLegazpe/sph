@@ -13,14 +13,14 @@ export default class Home extends Component {
             name="username"
             id=""
             placeholder="Username"
-            // onChange={e => this.handleChange(e)}
+            onChange={e => this.handleChange(e)}
           />
           <input
             type="text"
             name="password"
             id=""
             placeholder="Password"
-            // onChange={e => this.handleChange(e)}
+            onChange={e => this.handleChange(e)}
           />
           <input type="submit" />
         </form>
