@@ -12,6 +12,10 @@ export default class Service {
     return this.service.post("/signup", user).then(response => response.data);
   };
 
+  signupPro = pro => {
+    return this.service.post("/signupPro", pro).then(response => response.data);
+  };
+
   login = (email, password, rol) => {
     return this.service
       .post("/login", {
@@ -20,5 +24,13 @@ export default class Service {
         rol
       })
       .then(response => response.data);
+  };
+
+  loggedin = () => {
+    return this.service.get("/currentUser").then(response => response.data);
+  };
+
+  logout = () => {
+    return this.service.get("/logout").then(response => response.data);
   };
 }

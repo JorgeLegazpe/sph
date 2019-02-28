@@ -28,7 +28,6 @@ export default class SignupUser extends Component {
     this.service
       .signup({ email, password, name, phone, ubication })
       .then(user => {
-        debugger;
         this.setState({
           email: "",
           password: "",

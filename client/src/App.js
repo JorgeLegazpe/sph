@@ -10,20 +10,48 @@ import Perfiluser from "./component/perfil/Perfiluser";
 import Perfilpro from "./component/perfil/Perfilpro";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: false
+    };
+  }
+
+  changeUser = user => {
+    this.setState({ ...this.state, user });
+  };
+
   render() {
     return (
       <div>
-        <Navbar />
-        <div>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/auth/loginUser" component={LoginUser} />
-            <Route exact path="/auth/signup" component={SignupUser} />
-            <Route exact path="/auth/signupPro" component={SignupPro} />
-            <Route exact path="/perfiluser" component={Perfiluser} />
-            <Route exact path="/perfilpro" component={Perfilpro} />
-          </Switch>
-        </div>
+        <nav>
+          <Navbar userInSession={this.state.user} />
+        </nav>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route
+            exact
+            path="/auth/login"
+            render={() => <LoginUser change={this.changeUser} />}
+          />
+          <Route
+            exact
+            path="/auth/signup"
+            render={() => <SignupUser change={this.changeUser} />}
+          />
+          <Route
+            exact
+            path="/auth/signupPro"
+            render={() => <SignupPro change={this.changeUser} />}
+          />
+          <Route
+            exact
+            path="/perfiluser"
+            render={() => <Perfiluser userInSession={this.state.user} />}
+          />
+
+          <Route exact path="/perfilpro" component={Perfilpro} />
+        </Switch>
       </div>
     );
   }
