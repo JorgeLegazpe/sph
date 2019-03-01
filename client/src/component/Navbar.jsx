@@ -40,7 +40,7 @@ export default class Navbar extends Component {
           <li className={this.state.loggedInUser ? "none" : "block"}>
             <Link to="/auth/login">Login</Link>
           </li>
-          {/* <li>{this.state.loggedInUser.name}</li> */}
+
           <li className={this.state.loggedInUser ? "block" : "none"}>
             <a onClick={this.logout}>Logout</a>
           </li>
@@ -56,38 +56,5 @@ export default class Navbar extends Component {
         </ul>
       </nav>
     );
-    // this.fetchUser();
-    // console.log(this.state.loggedInUser);
-    // if (this.state.loggedInUser) {
-    //   return (
-    //     <nav className="navbar">
-    //       <ul>
-    //         <li>{this.state.loggedInUser.name}</li>
-    //         <li>
-    //           <a onClick={this.logout}>Logout</a>
-    //         </li>
-    //         <li>
-    //           <Link to="/perfiluser" />
-    //           Página perfil
-    //         </li>
-    //       </ul>
-    //     </nav>
-    //   );
-    // } else {
-    //   return (
-    //     <div>
-    //       <nav className="navbar">
-    //         <ul>
-    //           <li>
-    //             <Link to="/auth/signup">Signup</Link>
-    //           </li>
-    //           <li>
-    //             <Link to="/auth/login">Login</Link>
-    //           </li>
-    //         </ul>
-    //       </nav>
-    //     </div>
-    //   );
-    // }
   }
 }
