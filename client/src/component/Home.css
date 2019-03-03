@@ -1,11 +1,18 @@
-.border {
-  border: 1px solid white;
-  margin: 40px;
-  padding: 40px;
+.App {
+  width: 100%;
+  height: 600px;
+  margin: 0;
+  padding: 0;
 }
 
-.buscador {
-  background: rgb(245, 224, 224);
-  width: 100%;
+.profesionales {
   color: black;
+  text-decoration: none;
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.imgPrincipal {
+  width: 70%;
 }

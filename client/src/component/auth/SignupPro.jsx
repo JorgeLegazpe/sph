@@ -13,7 +13,8 @@ export default class SignupPro extends Component {
       password: "",
       phone: "",
       ubication: "",
-      type: ""
+      type: "",
+      redirect: false
     };
     this.service = new Service();
     this.pro = {};
@@ -39,7 +40,8 @@ export default class SignupPro extends Component {
           password: "",
           phone: "",
           ubication: "",
-          type: ""
+          type: "",
+          redirect: true
         });
 
         // this.props.getUser(response)
@@ -53,65 +55,92 @@ export default class SignupPro extends Component {
   };
   render() {
     return (
-      <div className="App">
-        <div>
+      <div className="containerSignup">
+        <div className="signup">
+          <h1>Regístrate y consigue más clientes</h1>
           <form action="submit" onSubmit={e => this.handleSubmit(e)}>
-            <label for="email">Email</label>
-            <input
-              type="text"
-              value={this.state.email}
-              name="email"
-              onChange={e => this.handleChange(e)}
-            />
-            <label for="empresa">Empresa</label>
-            <input
-              type="text"
-              value={this.state.empresa}
-              name="empresa"
-              onChange={e => this.handleChange(e)}
-            />
-            <label for="usuario">Persona de contacto</label>
-            <input
-              type="text"
-              value={this.state.name}
-              name="name"
-              onChange={e => this.handleChange(e)}
-            />
-            <label for="password">Password</label>
-            <input
-              type="text"
-              value={this.state.password}
-              name="password"
-              onChange={e => this.handleChange(e)}
-            />
-            <label for="phone">Teléfono</label>
-            <input
-              type="text"
-              value={this.state.phone}
-              name="phone"
-              onChange={e => this.handleChange(e)}
-            />
-            <label for="ubication">Ubicación</label>
-            <input
-              type="text"
-              value={this.state.ubication}
-              name="ubication"
-              onChange={e => this.handleChange(e)}
-            />
-            <label for="type">Tipo de profesión</label>
-            <select onChange={e => this.handleChange(e)}>
-              <option value="fontanero">Fontanero</option>
-              <option value="electricista">Electricista</option>
-              <option value="carpintero">Carpintero</option>
-              <option value="cristalero">Cristalero</option>
-              <option value="albañil">Albañil</option>
-            </select>
-            <input type="submit" />
+            <div>
+              <input
+                type="text"
+                value={this.state.email}
+                className="inputSignup"
+                name="email"
+                placeholder="Email"
+                onChange={e => this.handleChange(e)}
+              />
+            </div>
+            <div>
+              <input
+                type="text"
+                value={this.state.empresa}
+                className="inputSignup"
+                name="empresa"
+                placeholder="Nombre de empresa"
+                onChange={e => this.handleChange(e)}
+              />
+            </div>
+            <div>
+              <input
+                type="text"
+                value={this.state.name}
+                className="inputSignup"
+                name="name"
+                placeholder="Persona de contacto"
+                onChange={e => this.handleChange(e)}
+              />
+            </div>
+            <div>
+              <input
+                type="password"
+                value={this.state.password}
+                className="inputSignup"
+                name="password"
+                placeholder="Password"
+                onChange={e => this.handleChange(e)}
+              />
+            </div>
+            <div>
+              <input
+                type="text"
+                value={this.state.phone}
+                className="inputSignup"
+                name="phone"
+                placeholder="Teléfono"
+                onChange={e => this.handleChange(e)}
+              />
+            </div>
+            <div>
+              <input
+                type="text"
+                value={this.state.ubication}
+                className="inputSignup"
+                name="ubication"
+                placeholder="Ubicación"
+                onChange={e => this.handleChange(e)}
+              />
+            </div>
+            <div className="selectPro">
+              <label for="typePro">Tipo de negocio:</label>
+              <select name="typePro" onChange={e => this.handleChange(e)}>
+                <option>Elige tu profesión</option>
+                <option value="fontanero">Fontanero</option>
+                <option value="electricista">Electricista</option>
+                <option value="carpintero">Carpintero</option>
+                <option value="cristalero">Cristalero</option>
+                <option value="albañil">Albañil</option>
+                <option value="pintor">Pintor</option>
+              </select>
+            </div>
+            <div>
+              <input className="botonEnviar" type="submit" />
+            </div>
           </form>
+          <button className="botonHome">
+            <Link className="linkHome" to="/">
+              Volver a la Home
+            </Link>
+          </button>
         </div>
-        <button>
-          <Link to="/">Volver a la Home</Link>
-        </button>
       </div>
     );
   }

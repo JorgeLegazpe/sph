@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./LoginUser.css";
-import { Link } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import Service from "./Service";
 
 export default class LoginUser extends Component {
@@ -31,35 +31,53 @@ export default class LoginUser extends Component {
     this.setState({ [name]: value });
   };
   render() {
-    return (
-      <div className="App">
-        <form action="submit" onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            name="email"
-            id=""
-            placeholder="Email"
-            onChange={e => this.handleChange(e)}
-          />
-          <input
-            type="text"
-            name="password"
-            id=""
-            placeholder="Password"
-            onChange={e => this.handleChange(e)}
-          />
-          <input type="submit" />
-        </form>
-        <div>
-          <p>
-            Si no tienes cuenta regístrate
-            <Link to="/auth/signupUser">aquí</Link>
-          </p>
+    if (this.state.redirect) {
+      return <Redirect to="/" />;
+    } else {
+      return (
+        <div className="containerLogin">
+          <div className="login">
+            <h1>Accede a tu cuenta</h1>
+            <form action="submit" onSubmit={this.handleSubmit}>
+              <div>
+                <input
+                  type="text"
+                  className="inputLogin"
+                  name="email"
+                  id=""
+                  placeholder="Introduce tu email"
+                  onChange={e => this.handleChange(e)}
+                />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  name="password"
+                  className="inputLogin"
+                  id=""
+                  placeholder="Password"
+                  onChange={e => this.handleChange(e)}
+                />
+              </div>
+              <input className="botonEnviar" type="submit" />
+            </form>
+            <div>
+              <p>
+                Si no tienes cuenta regístrate
+                <Link className="link" to="/auth/signupUser">
+                  {" "}
+                  aquí.
+                </Link>
+              </p>
+            </div>
+            <button className="botonHome">
+              <Link className="linkHome" to="/">
+                Volver a la Home
+              </Link>
+            </button>
+          </div>
         </div>
-        <button>
-          <Link to="/">Volver a la Home</Link>
-        </button>
-      </div>
-    );
+      );
+    }
   }
 }

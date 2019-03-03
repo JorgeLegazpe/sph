@@ -1,0 +1,30 @@
+.edit {
+  border: 2px solid blue;
+  border-radius: 20px;
+  padding: 50px;
+  margin: 10px 200px;
+}
+
+.boton {
+  font-size: 20px;
+  color: white;
+  background: blue;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 20px;
+}
+
+.edit span {
+  font-size: 20px;
+  text-align: center;
+  background: grey;
+  color: white;
+  padding: 10px;
+  border-radius: 20px;
+  margin-left: 40px;
+}
+
+.edit p {
+  font-size: 18px;
+  font-weight: bold;
+}

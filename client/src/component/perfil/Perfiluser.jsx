@@ -24,8 +24,26 @@ export default class Perfiluser extends Component {
   render() {
     console.log(this.props);
     return (
-      <div className="App">
-        <p>{this.props.userInSession.name}</p>
+      <div className="perfiluser">
+        <div className="edit">
+          <h2>Datos Perfil</h2>
+          <p>
+            Nombre: <span>{this.props.userInSession.name}</span>
+          </p>
+          <p>
+            Email: <span>{this.props.userInSession.email}</span>
+          </p>
+          <p>
+            Teléfono: <span>{this.props.userInSession.phone}</span>
+          </p>
+          <p>
+            Ubicación: <span>{this.props.userInSession.ubication}</span>
+          </p>
+          <button className="boton">Editar perfil</button>
+        </div>
+        <div className="edit">
+          <h2>Presupuestos solicitados</h2>
+        </div>
       </div>
     );
   }

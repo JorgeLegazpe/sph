@@ -90,8 +90,11 @@ require("./passport")(app);
 const index = require("./routes/index");
 app.use("/", index);
 
-const Routes = require("./routes/auth");
-app.use("/auth", Routes);
+const router = require("./routes/auth");
+app.use("/auth", router);
+
+const works = require("./routes/works");
+app.use("/works", works);
 
 app.use((req, res, next) => {
   res.sendFile(__dirname + "/public/index.html");

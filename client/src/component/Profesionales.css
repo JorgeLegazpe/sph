@@ -1,0 +1,28 @@
+.general {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: flex-start;
+  margin: 40px;
+}
+
+.cadaPro {
+  border: 1px solid black;
+  width: 250px;
+  height: 100px;
+  align-self: flex-start;
+}
+
+.map {
+  margin: auto;
+}
+
+.title {
+  margin: 20px;
+}

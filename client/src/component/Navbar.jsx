@@ -10,12 +10,6 @@ export default class Navbar extends Component {
     this.service = new Service();
   }
 
-  // getUser = userObj => {
-  //   this.setState({
-  //     loggedInUser: userObj
-  //   });
-  // };
-
   logout = () => {
     this.service.logout().then(() => {
       this.setState({ loggedInUser: null });
@@ -31,27 +25,65 @@ export default class Navbar extends Component {
     return (
       <nav className="navbar">
         <ul>
-          <li className={this.state.loggedInUser ? "block" : "none"}>
-            Bienvenido {this.props.userInSession.name}
+          <li
+            style={{ textDecoration: "none" }}
+            className={this.state.loggedInUser ? "block" : "none"}
+          >
+            Hola {this.props.userInSession.name}
           </li>
-          <li className={this.state.loggedInUser ? "none" : "block"}>
+          <li
+            style={{ textDecoration: "none" }}
+            className={this.state.loggedInUser ? "none" : "block"}
+          >
             <Link to="/auth/signup">Signup</Link>
           </li>
-          <li className={this.state.loggedInUser ? "none" : "block"}>
+          <li
+            style={{ textDecoration: "none" }}
+            className={this.state.loggedInUser ? "none" : "block"}
+          >
             <Link to="/auth/login">Login</Link>
           </li>
 
-          <li className={this.state.loggedInUser ? "block" : "none"}>
-            <a onClick={this.logout}>Logout</a>
+          <li
+            style={{ textDecoration: "none" }}
+            className={this.state.loggedInUser ? "none" : "block"}
+          >
+            <Link to="/auth/signupPro">¿Eres profesional? Regístrate</Link>
+          </li>
+
+          <li
+            style={{ textDecoration: "none" }}
+            className={this.state.loggedInUser ? "block" : "none"}
+          >
+            <Link to="/" onClick={this.logout}>
+              Logout
+            </Link>
           </li>
           <li
+            style={{ textDecoration: "none" }}
             className={
               this.state.loggedInUser && this.state.loggedInUser.rol === "user"
                 ? "block"
                 : "none"
             }
           >
-            <Link to="/perfiluser">Página perfil</Link>
+            <Link to="/perfiluser">Mi perfil</Link>
+          </li>
+          <li
+            style={{ textDecoration: "none" }}
+            className={
+              this.state.loggedInUser && this.state.loggedInUser.rol === "Pro"
+                ? "block"
+                : "none"
+            }
+          >
+            <Link to="/perfilpro">Mi perfil</Link>
+          </li>
+          <li style={{ textDecoration: "none" }}>
+            <Link to="/como-funciona/">¿Cómo funciona?</Link>
+          </li>
+          <li style={{ textDecoration: "none" }}>
+            <Link to="/que-es-sph/">¿Qué es SPH?</Link>
           </li>
         </ul>
       </nav>

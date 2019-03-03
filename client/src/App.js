@@ -8,6 +8,8 @@ import { Switch, Route } from "react-router-dom";
 import Navbar from "./component/Navbar";
 import Perfiluser from "./component/perfil/Perfiluser";
 import Perfilpro from "./component/perfil/Perfilpro";
+import Profesionales from "./component/Profesionales";
+import Presupuesto from "./component/Presupuesto";
 
 class App extends Component {
   constructor(props) {
@@ -50,7 +52,21 @@ class App extends Component {
             render={() => <Perfiluser userInSession={this.state.user} />}
           />
 
-          <Route exact path="/perfilpro" component={Perfilpro} />
+          <Route
+            exact
+            path="/perfilpro"
+            render={() => <Perfilpro userInSession={this.state.user} />}
+          />
+          <Route
+            exact
+            path="/works/profesionales"
+            render={() => <Profesionales userInSession={this.state.user} />}
+          />
+          <Route
+            exact
+            path="/works/presupuesto"
+            render={() => <Presupuesto userInSession={this.state.user} />}
+          />
         </Switch>
       </div>
     );

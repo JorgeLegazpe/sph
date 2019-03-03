@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Service from "./Service";
-import "./SignupPro.css";
-import { Link } from "react-router-dom";
+import "./SignupUser.css";
+import { Redirect, Link } from "react-router-dom";
 
 export default class SignupUser extends Component {
   constructor(props) {
@@ -11,7 +11,8 @@ export default class SignupUser extends Component {
       password: "",
       name: "",
       phone: "",
-      ubication: ""
+      ubication: "",
+      redirect: false
     };
     this.service = new Service();
     this.user = {};
@@ -33,7 +34,8 @@ export default class SignupUser extends Component {
           password: "",
           name: "",
           phone: "",
-          ubication: ""
+          ubication: "",
+          redirect: true
         });
 
         // this.props.getUser(response)
@@ -48,56 +50,86 @@ export default class SignupUser extends Component {
   };
 
   render() {
-    return (
-      <div className="App">
-        <div>
-          <form action="submit" onSubmit={e => this.handleSubmit(e)}>
-            <label for="email">Email</label>
-            <input
-              type="text"
-              value={this.state.email}
-              name="email"
-              onChange={e => this.handleChange(e)}
-            />
-            <label for="password">Password</label>
-            <input
-              type="password"
-              value={this.state.password}
-              name="password"
-              onChange={e => this.handleChange(e)}
-            />
-            <label for="name">Nombre</label>
-            <input
-              type="text"
-              value={this.state.name}
-              name="name"
-              onChange={e => this.handleChange(e)}
-            />
-            <label for="phone">Teléfono</label>
-            <input
-              type="number"
-              value={this.state.phone}
-              name="phone"
-              onChange={e => this.handleChange(e)}
-            />
-            <label for="ubication">Ubicación</label>
-            <input
-              type="text"
-              value={this.state.ubication}
-              name="ubication"
-              onChange={e => this.handleChange(e)}
-            />
-            <input type="submit" />
-          </form>
+    if (this.state.redirect) {
+      return <Redirect to="/" />;
+    } else {
+      return (
+        <div className="containerSignup">
+          <div className="signup">
+            <h1>Crea tu cuenta en SPH</h1>
+            <form action="submit" onSubmit={e => this.handleSubmit(e)}>
+              <div>
+                <input
+                  type="text"
+                  className="inputSignup"
+                  value={this.state.email}
+                  name="email"
+                  placeholder="Email"
+                  onChange={e => this.handleChange(e)}
+                />
+              </div>
+              <div>
+                <input
+                  type="password"
+                  className="inputSignup"
+                  value={this.state.password}
+                  name="password"
+                  placeholder="Password"
+                  onChange={e => this.handleChange(e)}
+                />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  className="inputSignup"
+                  value={this.state.name}
+                  name="name"
+                  placeholder="Persona de contacto"
+                  onChange={e => this.handleChange(e)}
+                />
+              </div>
+              <div>
+                <input
+                  type="number"
+                  className="inputSignup"
+                  value={this.state.phone}
+                  name="phone"
+                  placeholder="Teléfono"
+                  onChange={e => this.handleChange(e)}
+                />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  className="inputSignup"
+                  value={this.state.ubication}
+                  name="ubication"
+                  placeholder="Ubicación"
+                  onChange={e => this.handleChange(e)}
+                />
+              </div>
+              <input className="botonEnviar" type="submit" />
+            </form>
+
+            <div>
+              <p>
+                ¿Ya tienes cuenta? Haz
+                <Link className="link" to={"/login"}>
+                  {" "}
+                  login
+                </Link>
+              </p>
+            </div>
+            <div>
+              <button className="botonHome">
+                <Link className="linkHome" to="/">
+                  Volver a la Home
+                </Link>
+              </button>
+            </div>
+          </div>
         </div>
-        <button>
-          ¿Ya tienes cuenta?
-          <Link to={"/login"}> Login</Link>
-        </button>
-        <button>
-          <Link to="/">Volver a la Home</Link>
-        </button>
-      </div>
-    );
+      );
+    }
   }
 }

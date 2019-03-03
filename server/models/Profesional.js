@@ -12,7 +12,14 @@ const proSchema = new Schema(
     rol: String,
     typePro: {
       type: String,
-      enum: ["cristalero", "fontanero", "electricista", "carpintero", "albañil"]
+      enum: [
+        "cristalero",
+        "fontanero",
+        "electricista",
+        "carpintero",
+        "albañil",
+        "pintor"
+      ]
     }
   },
   {

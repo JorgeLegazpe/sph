@@ -1,14 +1,39 @@
 import React, { Component } from "react";
 import "./Search.css";
 import { Link } from "react-router-dom";
+import Service from "./auth/Service";
 
 export default class Search extends Component {
+  constructor() {
+    super();
+    this.state = {
+      email: "",
+      password: "",
+      redirect: false
+    };
+    this.service = new Service();
+    this.user = {};
+  }
+
+  handleSubmit = e => {
+    const { typePro } = this.state;
+    this.service.search(typePro).then(user => {
+      this.setState({ ...this.state, redirect: true });
+      this.props.change(user);
+    });
+  };
+
+  handleChange = e => {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
+  };
+
   render() {
     return (
       <div className="App">
-        <div>
-          <p>Elige el profesional que necesitas</p>
-          <select>
+        <p>¿Qué tipo de profresional buscas?</p>
+        <form action="submit" onSubmit={this.handleSubmit}>
+          <select name="typePro" onChange={e => this.handleChange(e)}>
             <option value="todos">Todas las profesiones</option>
             <option value="fontanero">Fontanero</option>
             <option value="electricista">Electricista</option>
@@ -16,14 +41,13 @@ export default class Search extends Component {
             <option value="cristalero">Cristalero</option>
             <option value="albañil">Albañil</option>
           </select>
-        </div>
-        <div>
           <input
             type="text"
             name="ubicacion"
             placeholder="Introduce tu ubicación"
           />
-        </div>
+          <input type="submit" />
+        </form>
       </div>
     );
   }
