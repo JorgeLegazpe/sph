@@ -5,7 +5,7 @@ const profesionales = [
     email: "joseluis@fontaneriaarganzuela.com",
     password: "12345678",
     phone: 912352378,
-    ubication: "Delicias 70",
+    ubication: "Paseo de las Delicias 70 Madrid",
     rol: "pro",
     typePro: "fontanero"
   },
@@ -15,7 +15,7 @@ const profesionales = [
     email: "info@todogrifos.com",
     password: "12345678",
     phone: 914678898,
-    ubication: "Embajadores 172",
+    ubication: "Paseo Castellana 205 Madrid",
     rol: "pro",
     typePro: "fontanero"
   },
@@ -25,7 +25,7 @@ const profesionales = [
     email: "info@griferiarapida.com",
     password: "12345678",
     phone: 913459932,
-    ubication: "Paseo Chopera 33",
+    ubication: "Velazquez 76 Madrid",
     rol: "pro",
     typePro: "fontanero"
   },
@@ -35,7 +35,7 @@ const profesionales = [
     email: "juanjo@carpinterosdemadrid.com",
     password: "12345678",
     phone: 910036799,
-    ubication: "Delicias 27",
+    ubication: "Calle Libreros 12 Madrid",
     rol: "pro",
     typePro: "carpintero"
   },
@@ -45,7 +45,7 @@ const profesionales = [
     email: "jesus@carpinteriahogar.com",
     password: "12345678",
     phone: 910436712,
-    ubication: "Guillermo de Osma 19",
+    ubication: "Calle Elfo 102 Madrid",
     rol: "pro",
     typePro: "carpintero"
   },
@@ -55,7 +55,7 @@ const profesionales = [
     email: "info@puertascastellanas.com",
     password: "12345678",
     phone: 910222717,
-    ubication: "Jaime el conquistador 17",
+    ubication: "Plaza Mayor 2 Mostoles",
     rol: "pro",
     typePro: "carpintero"
   },
@@ -65,7 +65,7 @@ const profesionales = [
     email: "alfredo@pinturasalfredo.com",
     password: "12345678",
     phone: 915435556,
-    ubication: "Caceres 22",
+    ubication: "Caceres 22 Madrid",
     rol: "pro",
     typePro: "pintor"
   },
@@ -75,7 +75,7 @@ const profesionales = [
     email: "carlos@pintoresbaratos.com",
     password: "12345678",
     phone: 919928837,
-    ubication: "Hierro 12",
+    ubication: "Avenida de la Albufera 68 Vallecas",
     rol: "pro",
     typePro: "pintor"
   },
@@ -85,7 +85,7 @@ const profesionales = [
     email: "info@lacasadelaspinturas.com",
     password: "12345678",
     phone: 914668903,
-    ubication: "Antonio Lopez 34",
+    ubication: "Avenida de la constitucion 23 Las Rozas",
     rol: "pro",
     typePro: "pintor"
   },
@@ -95,7 +95,7 @@ const profesionales = [
     email: "info@manoloybenito.com",
     password: "12345678",
     phone: 910045678,
-    ubication: "Antonio Lopez 45",
+    ubication: "Paseo de la Chopera 24 Madrid",
     rol: "pro",
     typePro: "albañil"
   },
@@ -105,7 +105,7 @@ const profesionales = [
     email: "antonio@reformasantonio.com",
     password: "12345678",
     phone: 912302309,
-    ubication: "Guillermo de Osma 23",
+    ubication: "Serrano 160 Madrid",
     rol: "pro",
     typePro: "albañil"
   },
@@ -115,7 +115,7 @@ const profesionales = [
     email: "info@albaliñeriaengeneral.com",
     password: "12345678",
     phone: 919092833,
-    ubication: "Paseo Chopera 10",
+    ubication: "Avenida Fernando Torres 12 Fuenlabrada",
     rol: "pro",
     typePro: "albañil"
   },
@@ -125,7 +125,7 @@ const profesionales = [
     email: "mustafachispas@gmail.com",
     password: "12345678",
     phone: 919394944,
-    ubication: "Jaime el conquistador 19",
+    ubication: "Calle Ferrocarril 72 Madrid",
     rol: "pro",
     typePro: "electricista"
   },
@@ -135,7 +135,7 @@ const profesionales = [
     email: "info@luzycalor.com",
     password: "12345678",
     phone: 912498238,
-    ubication: "Delicias 98",
+    ubication: "Alcalde Lopez Casero 5 Madrid",
     rol: "pro",
     typePro: "electricista"
   },
@@ -145,7 +145,7 @@ const profesionales = [
     email: "raul@electricistasmadrileños.com",
     password: "12345678",
     phone: 943208934,
-    ubication: "Embajadores 250",
+    ubication: "Jorge Juan 23 Madrid",
     rol: "pro",
     typePro: "electricista"
   },
@@ -155,7 +155,7 @@ const profesionales = [
     email: "info@cristaleriaalcala.com",
     password: "12345678",
     phone: 910034566,
-    ubication: "Alcala 45",
+    ubication: "Alcala 45 Madrid",
     rol: "pro",
     typePro: "cristalero"
   },
@@ -165,7 +165,7 @@ const profesionales = [
     email: "info@espejos.com",
     password: "12345678",
     phone: 913242344,
-    ubication: "Jaime el conquistador 25",
+    ubication: "Hermanos Becerril 24 Cuenca",
     rol: "pro",
     typePro: "cristalero"
   },
@@ -175,7 +175,7 @@ const profesionales = [
     email: "info@ventanasyaluminio.com",
     password: "12345678",
     phone: 914343667,
-    ubication: "Paseo Chopera 90",
+    ubication: "Plaza Mayor 1 San Lorenzo del Escorial Madrid",
     rol: "pro",
     typePro: "cristalero"
   }

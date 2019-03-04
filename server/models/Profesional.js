@@ -9,6 +9,7 @@ const proSchema = new Schema(
     password: String,
     phone: Number,
     ubication: String,
+    location: Object,
     rol: String,
     typePro: {
       type: String,

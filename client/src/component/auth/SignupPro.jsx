@@ -13,7 +13,7 @@ export default class SignupPro extends Component {
       password: "",
       phone: "",
       ubication: "",
-      type: "",
+      typePro: "",
       redirect: false
     };
     this.service = new Service();
@@ -28,10 +28,10 @@ export default class SignupPro extends Component {
     const password = this.state.password;
     const phone = this.state.phone;
     const ubication = this.state.ubication;
-    const type = this.state.type;
-
+    const typePro = this.state.typePro;
+    console.log(this.state);
     this.service
-      .signupPro({ email, empresa, name, password, phone, ubication, type })
+      .signupPro({ email, empresa, name, password, phone, ubication, typePro })
       .then(user => {
         this.setState({
           email: "",
@@ -40,11 +40,9 @@ export default class SignupPro extends Component {
           password: "",
           phone: "",
           ubication: "",
-          type: "",
+          typePro: "",
           redirect: true
         });
-
-        // this.props.getUser(response)
       })
       .catch(error => console.log(error));
   };
@@ -132,7 +130,7 @@ export default class SignupPro extends Component {
               </select>
             </div>
             <div>
-              <input className="botonEnviar" type="submit" />
+              <input className="botonEnviar" value="Registrar" type="submit" />
             </div>
           </form>
           <button className="botonHome">

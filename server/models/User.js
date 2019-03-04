@@ -8,6 +8,7 @@ const userSchema = new Schema(
     name: String,
     phone: Number,
     ubication: String,
+    location: Object,
     rol: String
   },
   {

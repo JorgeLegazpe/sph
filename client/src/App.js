@@ -60,7 +60,9 @@ class App extends Component {
           <Route
             exact
             path="/works/profesionales"
-            render={() => <Profesionales userInSession={this.state.user} />}
+            render={() => {
+              return <Profesionales userInSession={this.state.user} />;
+            }}
           />
           <Route
             exact
