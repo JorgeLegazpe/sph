@@ -10,10 +10,10 @@ export default class Profesionales extends Component {
     this.state = { loggedInUser: null, profesionales: [], typePro: "" };
     this.service = new Service();
     this.search();
+    this.filterPro = "";
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
     this.setState({ ...this.state, loggedInUser: nextProps["userInSession"] });
   }
 
@@ -22,19 +22,17 @@ export default class Profesionales extends Component {
       .search()
       .then(profesionales => {
         this.setState({ ...this.state, profesionales: profesionales });
+        this.filterPro = profesionales;
       })
-      .catch(err => console.log);
+      .catch(err => err);
   }
-
-  handleSubmit = e => {
-    const { typePro } = this.state;
-    console.log(this.state.typePro);
-    // this.setState({ ...this.state });
-  };
 
   handleChange = e => {
     const { name, value } = e.target;
-    this.setState({ [name]: value });
+    let filtro = this.filterPro.filter(item => {
+      return item.typePro === e.target.value;
+    });
+    this.setState({ [name]: value, profesionales: filtro });
   };
 
   render() {
@@ -45,7 +43,7 @@ export default class Profesionales extends Component {
           <Maps userInSession={this.state.user} />
         </div>
         <h2>¿Qué tipo de profesional buscas?</h2>
-        <form action="submit" onSubmit={this.handleSubmit()}>
+        <form action="submit">
           <select name="typePro" onChange={e => this.handleChange(e)}>
             <option>Elige profesion</option>
             <option value="fontanero">Fontanero</option>
@@ -54,26 +52,21 @@ export default class Profesionales extends Component {
             <option value="cristalero">Cristalero</option>
             <option value="albañil">Albañil</option>
           </select>
-          <input type="submit" />
         </form>
-        {this.state.profesionales.map(profesional => (
-          <div className="container">
-            {/* <NavLink
-              style={{ textDecoration: "none", color: "black", margin: 0 }}
-              className="item-2"
-              to={`/perfilpro/${profesional._id}`}
-              key={profesional._id}
-            > */}
-            <div className="cadaPro">
-              <p className="title">{profesional.empresa}</p>
 
-              <Link to="/works/presupuesto" trabajador={profesional._id}>
-                Pedir presupuesto
-              </Link>
+        <div className="container">
+          {this.state.profesionales.map(profesional => (
+            <div className="cadaPro">
+              <div>
+                <p className="title">{profesional.empresa}</p>
+
+                <Link to="/works/presupuesto" trabajador={profesional._id}>
+                  Contactar con la empresa
+                </Link>
+              </div>
             </div>
-            {/* </NavLink> */}
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     );
   }

@@ -46,7 +46,7 @@ export default class Maps extends React.PureComponent {
   render() {
     return (
       <MapWithAMarker
-        googleMapURL="https://maps.googleapis.com/maps/api/js?key=API_KEY_GOOGLE&v=3.exp&libraries=geometry,drawing,places"
+        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzW2O8kun6MFHbsvAL0nc7lOdmLw924LQ&v=3.exp&libraries=geometry,drawing,places"
         loadingElement={<div style={{ height: `100%` }} />}
         containerElement={<div style={{ height: `400px` }} />}
         mapElement={<div style={{ height: `100%` }} />}
