@@ -17,7 +17,6 @@ export default class Navbar extends Component {
   };
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
     this.setState({ ...this.state, loggedInUser: nextProps["userInSession"] });
   }
 

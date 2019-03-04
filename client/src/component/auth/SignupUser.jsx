@@ -37,8 +37,6 @@ export default class SignupUser extends Component {
           ubication: "",
           redirect: true
         });
-
-        // this.props.getUser(response)
       })
       .catch(error => console.log(error));
   };
@@ -46,7 +44,6 @@ export default class SignupUser extends Component {
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
-    console.log({ [name]: value });
   };
 
   render() {
@@ -108,7 +105,7 @@ export default class SignupUser extends Component {
                   onChange={e => this.handleChange(e)}
                 />
               </div>
-              <input className="botonEnviar" type="submit" />
+              <input className="botonEnviar" value="Registrar" type="submit" />
             </form>
 
             <div>

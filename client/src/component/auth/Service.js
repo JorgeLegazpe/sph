@@ -15,6 +15,7 @@ export default class Service {
   };
 
   signupPro = pro => {
+    console.log(pro);
     return this.service
       .post("/auth/signupPro", pro)
       .then(response => response.data);

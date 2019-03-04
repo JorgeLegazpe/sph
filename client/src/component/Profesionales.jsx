@@ -40,7 +40,10 @@ export default class Profesionales extends Component {
       <div className="general">
         <h1 className="title">Localiza a nuestros profesionales</h1>
         <div className="map">
-          <Maps userInSession={this.state.user} />
+          <Maps
+            userInSession={this.props.userInSession}
+            filterProfesionals={this.state.profesionales}
+          />
         </div>
         <h2>¿Qué tipo de profesional buscas?</h2>
         <form action="submit">
@@ -51,6 +54,7 @@ export default class Profesionales extends Component {
             <option value="carpintero">Carpintero</option>
             <option value="cristalero">Cristalero</option>
             <option value="albañil">Albañil</option>
+            <option value="pintor">Pintor</option>
           </select>
         </form>
 

@@ -1,8 +1,10 @@
+require("dotenv").config();
 const express = require("express");
 const passport = require("passport");
 const router = express.Router();
 const User = require("../models/User");
 const Pro = require("../models/Profesional");
+const fetch = require("node-fetch");
 
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
@@ -83,30 +85,40 @@ router.post("/signup", (req, res, next) => {
     const salt = bcrypt.genSaltSync(bcryptSalt);
     const hashPass = bcrypt.hashSync(password, salt);
 
-    const newUser = new User({
-      email: email,
-      password: hashPass,
-      name: name,
-      phone: phone,
-      ubication: ubication,
-      rol: "user"
-    });
+    fetch(
+      `https://maps.googleapis.com/maps/api/geocode/json?address=${
+        req.body.ubication
+      }&key=${process.env.GKEY}`
+    )
+      .then(response => {
+        return response.json();
+      })
+      .then(myJson => {
+        const lat = myJson.results[0].geometry.location.lat;
+        const lng = myJson.results[0].geometry.location.lng;
 
-    newUser.save(err => {
-      if (err) {
-        res
-          .status(400)
-          .json({ message: "Fallo al guardar los datos en la BBDD" });
-        return;
-      }
-      req.login(newUser, err => {
-        if (err) {
-          res.status(500).json({ message: "Inicio de sesión fallido" });
-          return;
-        }
-        res.status(200).json(newUser);
+        User.create({
+          email,
+          password: hashPass,
+          name,
+          phone,
+          ubication,
+          location: {
+            type: "Point",
+            coords: {
+              lat,
+              lng
+            }
+          },
+          rol: "user"
+        })
+          .then(() => {
+            res.redirect("/");
+          })
+          .catch(err => {
+            res.render("auth/signup", { message: "Something went wrong" });
+          });
       });
-    });
   });
 });
 
@@ -141,32 +153,42 @@ router.post("/signupPro", (req, res, next) => {
     const salt = bcrypt.genSaltSync(bcryptSalt);
     const hashPass = bcrypt.hashSync(password, salt);
 
-    const newPro = new Pro({
-      email: email,
-      password: hashPass,
-      name: name,
-      phone: phone,
-      ubication: ubication,
-      empresa: empresa,
-      typePro: typePro,
-      rol: "Pro"
-    });
+    fetch(
+      `https://maps.googleapis.com/maps/api/geocode/json?address=${
+        req.body.ubication
+      }&key=${process.env.GKEY}`
+    )
+      .then(response => {
+        return response.json();
+      })
+      .then(myJson => {
+        const lat = myJson.results[0].geometry.location.lat;
+        const lng = myJson.results[0].geometry.location.lng;
 
-    newPro.save(err => {
-      if (err) {
-        res
-          .status(400)
-          .json({ message: "Fallo al guardar los datos en la BBDD" });
-        return;
-      }
-      req.login(newPro, err => {
-        if (err) {
-          res.status(500).json({ message: "Inicio de sesión fallido" });
-          return;
-        }
-        res.status(200).json(newPro);
+        Pro.create({
+          email,
+          password: hashPass,
+          name,
+          phone,
+          ubication,
+          empresa,
+          typePro,
+          location: {
+            type: "Point",
+            coords: {
+              lat,
+              lng
+            }
+          },
+          rol: "Pro"
+        })
+          .then(() => {
+            res.redirect("/");
+          })
+          .catch(err => {
+            res.render("auth/signup", { message: "Something went wrong" });
+          });
       });
-    });
   });
 });
 
