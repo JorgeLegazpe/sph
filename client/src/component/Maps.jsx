@@ -9,7 +9,8 @@ import {
 const {
   MarkerClusterer
 } = require("react-google-maps/lib/components/addons/MarkerClusterer");
-
+const { compose, withProps, withStateHandlers } = require("recompose");
+console.log("skdjakldjaljaldjslshd");
 const MapWithAMarker = withScriptjs(
   withGoogleMap(props => (
     <GoogleMap
@@ -36,29 +37,6 @@ const MapWithAMarker = withScriptjs(
           lng: props.posicion.location.coords.lng
         }}
       />
-
-      {/* <Marker
-        position={{
-          // for(var i = 1; i<filter.length; i++ ){
-          //   lat: props.filter[0].location.coords.lat,
-          // lng: props.filter[0].location.coords.lng
-          // }
-          lat: props.filter[0].location.coords.lat,
-          lng: props.filter[0].location.coords.lng
-        }}
-      />
-      <Marker
-        position={{
-          lat: props.filter[1].location.coords.lat,
-          lng: props.filter[1].location.coords.lng
-        }}
-      />
-      <Marker
-        position={{
-          lat: props.filter[2].location.coords.lat,
-          lng: props.filter[2].location.coords.lng
-        }}
-      /> */}
     </GoogleMap>
   ))
 );
