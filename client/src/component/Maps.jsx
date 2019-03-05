@@ -6,6 +6,9 @@ import {
   Marker,
   InfoWindow
 } from "react-google-maps";
+const {
+  MarkerClusterer
+} = require("react-google-maps/lib/components/addons/MarkerClusterer");
 
 const MapWithAMarker = withScriptjs(
   withGoogleMap(props => (
@@ -16,6 +19,17 @@ const MapWithAMarker = withScriptjs(
         lng: props.posicion.location.coords.lng
       }}
     >
+      <MarkerClusterer averageCenter enableRetinaIcons gridSize={60}>
+        {props.filter.map(marker => (
+          <Marker
+            key={marker.empresa}
+            position={{
+              lat: marker.location.coords.lat,
+              lng: marker.location.coords.lng
+            }}
+          />
+        ))}
+      </MarkerClusterer>
       <Marker
         position={{
           lat: props.posicion.location.coords.lat,
@@ -23,7 +37,7 @@ const MapWithAMarker = withScriptjs(
         }}
       />
 
-      <Marker
+      {/* <Marker
         position={{
           // for(var i = 1; i<filter.length; i++ ){
           //   lat: props.filter[0].location.coords.lat,
@@ -44,7 +58,7 @@ const MapWithAMarker = withScriptjs(
           lat: props.filter[2].location.coords.lat,
           lng: props.filter[2].location.coords.lng
         }}
-      />
+      /> */}
     </GoogleMap>
   ))
 );
