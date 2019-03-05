@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   withScriptjs,
   withGoogleMap,
@@ -10,8 +11,6 @@ import {
 const {
   MarkerClusterer
 } = require("react-google-maps/lib/components/addons/MarkerClusterer");
-
-const { compose, withProps, withStateHandlers } = require("recompose");
 
 const MapWithAMarker = withScriptjs(
   withGoogleMap(props => (
@@ -40,7 +39,13 @@ const MapWithAMarker = withScriptjs(
                   props.handleCloseInfoWindow({ company: marker.empresa })
                 }
               >
-                <div>{marker.empresa}</div>
+                <div>
+                  <div>{marker.empresa}</div>
+                  <div>{marker.ubication}</div>
+                  <Link to="/chat">
+                    <button>Contactar</button>
+                  </Link>
+                </div>
               </InfoWindow>
             )}
           </Marker>
@@ -54,7 +59,9 @@ const MapWithAMarker = withScriptjs(
         onClick={() => props.handleMarkerClick({ a: true })}
       >
         <InfoWindow onCloseClick={props.onToggleOpen}>
-          <div>Controlled zoom: {props.zoom}</div>
+          <div style={{ background: "black", color: "white" }}>
+            <h1>Tu estás aquí</h1>
+          </div>
         </InfoWindow>
       </Marker>
     </GoogleMap>
@@ -109,7 +116,6 @@ export default class Maps extends React.PureComponent {
   };
 
   render() {
-    // debugger;
     return !this.state.loggedInUser ? (
       <MapWithAMarker
         googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzW2O8kun6MFHbsvAL0nc7lOdmLw924LQ&v=3.exp&libraries=geometry,drawing,places"
@@ -118,6 +124,7 @@ export default class Maps extends React.PureComponent {
         mapElement={<div style={{ height: `100%` }} />}
         openInfoWindows={this.state.openInfoWindows}
         handleCloseInfoWindow={this.handleCloseInfoWindow}
+        //this.state.userInSession o loggedInUser
         posicion={{
           _id: "5c7d129701e2f81bca3f3b0d",
           email: "pepe@pepe.com",

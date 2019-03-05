@@ -9,7 +9,7 @@ import Navbar from "./component/Navbar";
 import Perfiluser from "./component/perfil/Perfiluser";
 import Perfilpro from "./component/perfil/Perfilpro";
 import Profesionales from "./component/Profesionales";
-import Presupuesto from "./component/Presupuesto";
+import Chat from "./component/chat/Chat";
 
 class App extends Component {
   constructor(props) {
@@ -66,8 +66,8 @@ class App extends Component {
           />
           <Route
             exact
-            path="/works/presupuesto"
-            render={() => <Presupuesto userInSession={this.state.user} />}
+            path="/chat"
+            render={() => <Chat idUser={this.state.user._Id} />}
           />
         </Switch>
       </div>
