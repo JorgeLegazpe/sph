@@ -77,25 +77,18 @@ export default class Maps extends React.Component {
   };
 
   componentWillReceiveProps(nextProps) {
-    console.log("WILL RECIVE PROPS");
     let openInfoWindowsObj = {};
-    console.log(nextProps);
 
     for (var key in nextProps["filterProfesionals"]) {
       openInfoWindowsObj[nextProps["filterProfesionals"][key].empresa] = false;
     }
 
-    this.setState(
-      {
-        ...this.state,
-        loggedInUser: nextProps["userInSession"],
-        filterProf: nextProps["filterProfesionals"],
-        openInfoWindows: openInfoWindowsObj
-      },
-      () => {
-        console.log(this.state.loggedInUser);
-      }
-    );
+    this.setState({
+      ...this.state,
+      loggedInUser: nextProps["userInSession"],
+      filterProf: nextProps["filterProfesionals"],
+      openInfoWindows: openInfoWindowsObj
+    });
   }
 
   handleMarkerClick = e => {
@@ -124,13 +117,7 @@ export default class Maps extends React.Component {
 
   render() {
     return this.state.loggedInUser ? (
-      // <div>
-      //   {this.state.loggedInUser.map(item => {
-      //     console.log(item);
-      //   })}
-      // </div>
       <div>
-        hay usuario
         <MapWithAMarker
           googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzW2O8kun6MFHbsvAL0nc7lOdmLw924LQ&v=3.exp&libraries=geometry,drawing,places"
           loadingElement={<div style={{ height: `100%` }} />}
@@ -144,7 +131,7 @@ export default class Maps extends React.Component {
         />
       </div>
     ) : (
-      <p>load</p>
+      <p>No estás logueado</p>
     );
   }
 }

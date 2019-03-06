@@ -14,8 +14,9 @@
 .cadaPro {
   border: 1px solid black;
   width: 250px;
-  height: 100px;
+  height: 150px;
   margin: 10px;
+  border-radius: 5px;
 }
 
 .map {
@@ -23,5 +24,21 @@
 }
 
 .title {
-  margin: 20px;
+  margin: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.linkChat {
+  border: 1px solid black;
+  border-radius: 5px;
+  color: black;
+  padding: 5px;
+  margin: 10px;
+  margin-left: 50px;
+  background: rgba(255, 255, 255, 255);
+}
+
+.direction {
+  margin-left: 10px;
 }
