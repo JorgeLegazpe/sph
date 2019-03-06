@@ -17,8 +17,8 @@ const MapWithAMarker = withScriptjs(
     <GoogleMap
       defaultZoom={12}
       defaultCenter={{
-        lat: props.posicion.location.coords.lat,
-        lng: props.posicion.location.coords.lng
+        lat: props.posicion.loggedInUser.location.coords.lat,
+        lng: props.posicion.loggedInUser.location.coords.lng
       }}
     >
       <MarkerClusterer averageCenter enableRetinaIcons gridSize={60}>
@@ -53,8 +53,8 @@ const MapWithAMarker = withScriptjs(
       </MarkerClusterer>
       <Marker
         position={{
-          lat: props.posicion.location.coords.lat,
-          lng: props.posicion.location.coords.lng
+          lat: props.posicion.loggedInUser.location.coords.lat,
+          lng: props.posicion.loggedInUser.location.coords.lng
         }}
         onClick={() => props.handleMarkerClick({ a: true })}
       >
@@ -68,27 +68,34 @@ const MapWithAMarker = withScriptjs(
   ))
 );
 
-export default class Maps extends React.PureComponent {
+export default class Maps extends React.Component {
   state = {
     isMarkerShown: false,
-    loggedInUser: null,
-    filterProf: this.props.filterProf,
+    loggedInUser: false,
+    filterProf: null,
     openInfoWindows: undefined
   };
 
   componentWillReceiveProps(nextProps) {
+    console.log("WILL RECIVE PROPS");
     let openInfoWindowsObj = {};
+    console.log(nextProps);
 
     for (var key in nextProps["filterProfesionals"]) {
       openInfoWindowsObj[nextProps["filterProfesionals"][key].empresa] = false;
     }
 
-    this.setState({
-      ...this.state,
-      loggedInUser: nextProps["userInSession"],
-      filterProf: nextProps["filterProfesionals"],
-      openInfoWindows: openInfoWindowsObj
-    });
+    this.setState(
+      {
+        ...this.state,
+        loggedInUser: nextProps["userInSession"],
+        filterProf: nextProps["filterProfesionals"],
+        openInfoWindows: openInfoWindowsObj
+      },
+      () => {
+        console.log(this.state.loggedInUser);
+      }
+    );
   }
 
   handleMarkerClick = e => {
@@ -116,35 +123,26 @@ export default class Maps extends React.PureComponent {
   };
 
   render() {
-    return !this.state.loggedInUser ? (
-      <MapWithAMarker
-        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzW2O8kun6MFHbsvAL0nc7lOdmLw924LQ&v=3.exp&libraries=geometry,drawing,places"
-        loadingElement={<div style={{ height: `100%` }} />}
-        containerElement={<div style={{ height: `400px` }} />}
-        mapElement={<div style={{ height: `100%` }} />}
-        openInfoWindows={this.state.openInfoWindows}
-        handleCloseInfoWindow={this.handleCloseInfoWindow}
-        //this.state.userInSession o loggedInUser
-        posicion={{
-          _id: "5c7d129701e2f81bca3f3b0d",
-          email: "pepe@pepe.com",
-          password:
-            "$2b$10$jQ21UUT7KXgQqJel9GeLpeWa8q9fSLx1cdFw1CRwmQA13/LUF8J.m",
-          name: "Pepe",
-          phone: 321313123,
-          ubication: "Alcala 25 Madrid",
-          location: {
-            type: "Point",
-            coords: { lat: 40.4182075, lng: -3.6989813 }
-          },
-          rol: "user",
-          created_at: "2019-03-04T11:57:11.278Z",
-          updated_at: "2019-03-04T11:57:11.278Z",
-          __v: 0
-        }}
-        filter={this.state.filterProf}
-        handleMarkerClick={this.handleMarkerClick}
-      />
+    return this.state.loggedInUser ? (
+      // <div>
+      //   {this.state.loggedInUser.map(item => {
+      //     console.log(item);
+      //   })}
+      // </div>
+      <div>
+        hay usuario
+        <MapWithAMarker
+          googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzW2O8kun6MFHbsvAL0nc7lOdmLw924LQ&v=3.exp&libraries=geometry,drawing,places"
+          loadingElement={<div style={{ height: `100%` }} />}
+          containerElement={<div style={{ height: `400px` }} />}
+          mapElement={<div style={{ height: `100%` }} />}
+          openInfoWindows={this.state.openInfoWindows}
+          handleCloseInfoWindow={this.handleCloseInfoWindow}
+          posicion={this.state}
+          filter={this.state.filterProf}
+          handleMarkerClick={this.handleMarkerClick}
+        />
+      </div>
     ) : (
       <p>load</p>
     );

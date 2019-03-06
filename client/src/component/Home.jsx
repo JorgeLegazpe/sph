@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
-import Search from "./Search";
-import Maps from "./Maps";
 
 export default class Home extends Component {
   render() {
@@ -13,7 +11,11 @@ export default class Home extends Component {
             <Link className="profesionales" to="/works/profesionales">
               <h1>Encuentra al profesional adecuado</h1>
             </Link>
-            <img className="imgPrincipal" src="../../images/principal.jpg" />
+            <img
+              className="imgPrincipal"
+              src="../../images/principal.jpg"
+              alt="imagen principal"
+            />
           </div>
 
           <div />

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./Perfilpro.css";
-import { Link } from "react-router-dom";
 import Service from "../auth/Service";
 
 export default class Perfilpro extends Component {

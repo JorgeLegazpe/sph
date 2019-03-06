@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./Search.css";
-import { Link } from "react-router-dom";
 import Service from "./auth/Service";
 
 export default class Search extends Component {

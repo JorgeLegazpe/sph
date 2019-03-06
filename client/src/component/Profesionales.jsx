@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Profesionales.css";
 import Service from "./auth/Service";
-import { NavLink, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Maps from "./Maps";
 
 export default class Profesionales extends Component {
@@ -36,6 +36,8 @@ export default class Profesionales extends Component {
   };
 
   render() {
+    console.log(this.props.userInSession);
+
     return (
       <div className="general">
         <h1 className="title">Localiza a nuestros profesionales</h1>
