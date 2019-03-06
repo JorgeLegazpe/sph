@@ -36,8 +36,6 @@ export default class Profesionales extends Component {
   };
 
   render() {
-    console.log(this.props.userInSession);
-
     return (
       <div className="general">
         <h1 className="title">Localiza a nuestros profesionales</h1>
@@ -65,9 +63,13 @@ export default class Profesionales extends Component {
             <div className="cadaPro">
               <div>
                 <p className="title">{profesional.empresa}</p>
-
-                <Link to="/works/presupuesto" trabajador={profesional._id}>
-                  Contactar con la empresa
+                <p className="direction">{profesional.ubication}</p>
+                <Link
+                  className="linkChat"
+                  to="/works/chat"
+                  empresa={profesional._id}
+                >
+                  Contactar
                 </Link>
               </div>
             </div>
