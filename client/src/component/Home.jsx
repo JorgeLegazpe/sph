@@ -8,14 +8,13 @@ export default class Home extends Component {
       <div>
         <div className="App">
           <div>
-            <Link className="profesionales" to="/works/profesionales">
-              <h1>Encuentra al profesional adecuado</h1>
+            <Link to="/works/profesionales">
+              <img
+                className="imgPrincipal"
+                src="../../images/principal.jpg"
+                alt="imagen principal"
+              />
             </Link>
-            <img
-              className="imgPrincipal"
-              src="../../images/principal.jpg"
-              alt="imagen principal"
-            />
           </div>
 
           <div />

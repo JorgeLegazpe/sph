@@ -36,7 +36,7 @@ export default class Perfilpro extends Component {
               Empresa:
               <input
                 type="text"
-                className="form-group"
+                className="form-control"
                 placeholder={this.props.userInSession.empresa}
               />
             </div>
@@ -44,7 +44,7 @@ export default class Perfilpro extends Component {
               Nombre:
               <input
                 type="text"
-                className="form-group"
+                className="form-control"
                 placeholder={this.props.userInSession.name}
               />
             </div>
@@ -52,7 +52,7 @@ export default class Perfilpro extends Component {
               Email:
               <input
                 type="text"
-                className="form-group"
+                className="form-control"
                 placeholder={this.props.userInSession.email}
               />
             </div>
@@ -60,7 +60,7 @@ export default class Perfilpro extends Component {
               Teléfono:
               <input
                 type="number"
-                className="form-group"
+                className="form-control"
                 placeholder={this.props.userInSession.phone}
               />
             </div>
@@ -68,7 +68,7 @@ export default class Perfilpro extends Component {
               Ubicación:
               <input
                 type="text"
-                className="form-group"
+                className="form-control"
                 placeholder={this.props.userInSession.ubication}
               />
             </div>

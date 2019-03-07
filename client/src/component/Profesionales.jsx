@@ -82,15 +82,17 @@ export default class Profesionales extends Component {
                 <p className="title">{profesional.empresa}</p>
                 <p className="direction">{profesional.ubication}</p>
                 <p>{profesional.phone}</p>
-                <button
-                  type="button"
-                  className="linkChat"
-                  onClick={e => {
-                    this.createRelation(profesional);
-                  }}
-                >
-                  Contactar
-                </button>
+                <Link to="/works/perfiluser">
+                  <button
+                    type="button"
+                    className="linkChat"
+                    onClick={e => {
+                      this.createRelation(profesional);
+                    }}
+                  >
+                    Contactar
+                  </button>
+                </Link>
               </div>
             </div>
           ))}

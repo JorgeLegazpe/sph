@@ -59,7 +59,7 @@ export default class Perfiluser extends Component {
               Ubicación:{" "}
               <input
                 type="text"
-                className="form-control ancho"
+                className="form-control"
                 placeholder={this.props.userInSession.ubication}
               />
             </div>
@@ -75,7 +75,6 @@ export default class Perfiluser extends Component {
               <div>
                 <p>Empresa: {presupuesto.profesional.empresa}</p>
                 <p>Teléfono: {presupuesto.profesional.phone}</p>
-                <hr />
               </div>
             </div>
           ))}
