@@ -5,12 +5,22 @@ import Service from "../auth/Service";
 export default class Perfiluser extends Component {
   constructor(props) {
     super(props);
-    this.state = { loggedInUser: null };
+    this.state = { loggedInUser: null, presupuestos: [] };
     this.service = new Service();
+    this.findRelationUser();
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({ ...this.state, loggedInUser: nextProps["userInSession"] });
+  }
+
+  findRelationUser() {
+    this.service
+      .findRelationUser(this.props.userInSession._id)
+      .then(response => {
+        this.setState({ ...this.state, presupuestos: response });
+      })
+      .catch(err => err);
   }
 
   render() {
@@ -59,9 +69,14 @@ export default class Perfiluser extends Component {
           </div>
         </form>
         <div className="presupuestos">
-          <div>
-            <h2>Presupuestos solicitados</h2>
-          </div>
+          <h2>Presupuestos solicitados</h2>
+          {this.state.presupuestos.map(presupuesto => (
+            <div className="cadaPresu">
+              <div>
+                <p>{presupuesto._id}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     );

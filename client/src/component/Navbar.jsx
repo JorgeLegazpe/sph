@@ -91,7 +91,7 @@ export default class Navbar extends Component {
                   : "none"
               }
             >
-              <Link to="/perfiluser" className="nav-link">
+              <Link to="/works/perfiluser" className="nav-link">
                 Mi perfil
               </Link>
             </li>
@@ -103,7 +103,7 @@ export default class Navbar extends Component {
                   : "none"
               }
             >
-              <Link to="/perfilpro" className="nav-link">
+              <Link to="/works/perfilpro" className="nav-link">
                 Mi perfil
               </Link>
             </li>{" "}

@@ -48,13 +48,13 @@ class App extends Component {
           />
           <Route
             exact
-            path="/perfiluser"
+            path="/works/perfiluser"
             render={() => <Perfiluser userInSession={this.state.user} />}
           />
 
           <Route
             exact
-            path="/perfilpro"
+            path="/works/perfilpro"
             render={() => <Perfilpro userInSession={this.state.user} />}
           />
           <Route

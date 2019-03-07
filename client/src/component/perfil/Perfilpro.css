@@ -1,0 +1,24 @@
+.editPerfil {
+  border: 1px solid blue;
+  border-radius: 20px;
+  padding: 30px;
+  margin: 30px;
+}
+
+.divBoton {
+  display: flex;
+  flex-flow: row-reverse;
+}
+
+.boton {
+  border-radius: 10px;
+  background: blue;
+  color: white;
+}
+
+.presupuestos {
+  padding: 30px;
+  margin: 30px;
+  border: 1px solid blue;
+  border-radius: 20px;
+}
