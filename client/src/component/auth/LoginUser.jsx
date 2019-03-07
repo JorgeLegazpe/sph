@@ -51,7 +51,7 @@ export default class LoginUser extends Component {
               </div>
               <div>
                 <input
-                  type="text"
+                  type="password"
                   name="password"
                   className="inputLogin"
                   id=""

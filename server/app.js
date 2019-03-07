@@ -81,9 +81,12 @@ app.use(
 app.use(
   cors({
     credentials: true,
-    origin: ["https://solucionesph.herokuapp.com"]
+    origin: ["http://localhost:3000"]
   })
 );
+
+// https://solucionesph.herokuapp.com  origin: Para producccion
+
 app.use(flash());
 require("./passport")(app);
 

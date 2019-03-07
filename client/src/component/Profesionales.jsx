@@ -25,14 +25,12 @@ export default class Profesionales extends Component {
   }
 
   createRelation(props) {
-    const idPro = props;
+    console.log(props);
+    const profesional = props;
     const idUser = this.props.userInSession._id;
-    console.log(this.props.userInSession._id);
     this.service
-      .createRelation({ idPro, idUser })
-      .then(relation => {
-        console.log("Enviado");
-      })
+      .createRelation(idUser, profesional)
+      .then(relation => {})
       .catch(err => err);
   }
 
@@ -83,11 +81,12 @@ export default class Profesionales extends Component {
               <div>
                 <p className="title">{profesional.empresa}</p>
                 <p className="direction">{profesional.ubication}</p>
+                <p>{profesional.phone}</p>
                 <button
                   type="button"
                   className="linkChat"
                   onClick={e => {
-                    this.createRelation(profesional._id);
+                    this.createRelation(profesional);
                   }}
                 >
                   Contactar

@@ -73,7 +73,9 @@ export default class Perfiluser extends Component {
           {this.state.presupuestos.map(presupuesto => (
             <div className="cadaPresu">
               <div>
-                <p>{presupuesto._id}</p>
+                <p>Empresa: {presupuesto.profesional.empresa}</p>
+                <p>Teléfono: {presupuesto.profesional.phone}</p>
+                <hr />
               </div>
             </div>
           ))}

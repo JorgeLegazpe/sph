@@ -3,10 +3,12 @@ import axios from "axios";
 export default class Service {
   constructor() {
     this.service = axios.create({
-      baseURL: "https://solucionesph.herokuapp.com/",
+      baseURL: "http://localhost:5000",
       withCredentials: true
     });
   }
+
+  // https://solucionesph.herokuapp.com/   baseURL: Para produccion
 
   signup = user => {
     return this.service
@@ -47,21 +49,22 @@ export default class Service {
       .then(response => response.data);
   };
 
-  createRelation = (idUser, idPro) => {
+  createRelation = (user, profesional) => {
+    console.log(user, profesional);
     return this.service
-      .post("/works/profesionales", { idUser, idPro })
+      .post("/works/profesionales", { user, profesional })
       .then(response => response.data);
   };
 
-  findRelationUser = relation => {
+  findRelationUser = user => {
     return this.service
-      .get("/works/perfiluser", relation)
+      .get("/works/perfiluser/" + user, { user })
       .then(response => response.data);
   };
 
-  findRelationPro = relation => {
+  findRelationPro = user => {
     return this.service
-      .get("/works/perfilpro", relation)
+      .get("/works/perfilpro/" + user, { user })
       .then(response => response.data);
   };
 }

@@ -19,6 +19,7 @@ export default class Perfilpro extends Component {
       .findRelationPro(this.props.userInSession._id)
       .then(response => {
         this.setState({ ...this.state, presupuestos: response });
+        console.log(response);
       })
       .catch(err => err);
   }
@@ -81,7 +82,10 @@ export default class Perfilpro extends Component {
           {this.state.presupuestos.map(presupuesto => (
             <div className="cadaPresu">
               <div>
-                <p>{presupuesto._id}</p>
+                <p>Nombre: {presupuesto.user.name}</p>
+                <p>Teléfono: {presupuesto.user.phone}</p>
+                <p>Dirección: {presupuesto.user.ubication}</p>
+                <hr />
               </div>
             </div>
           ))}
