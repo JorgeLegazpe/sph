@@ -5,17 +5,25 @@ import Service from "../auth/Service";
 export default class Perfilpro extends Component {
   constructor(props) {
     super(props);
-    this.state = { loggedInUser: null };
+    this.state = { loggedInUser: null, presupuestos: [] };
     this.service = new Service();
+    this.findRelationPro();
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
     this.setState({ ...this.state, loggedInUser: nextProps["userInSession"] });
   }
 
+  findRelationPro() {
+    this.service
+      .findRelationPro(this.props.userInSession._id)
+      .then(response => {
+        this.setState({ ...this.state, presupuestos: response });
+      })
+      .catch(err => err);
+  }
+
   render() {
-    console.log(this.props);
     return (
       <div>
         <form className="editPerfil">
@@ -69,9 +77,14 @@ export default class Perfilpro extends Component {
           </div>
         </form>
         <div className="presupuestos">
-          <div>
-            <h2>Presupuestos recibidos</h2>
-          </div>
+          <h2>Presupuestos solicitados</h2>
+          {this.state.presupuestos.map(presupuesto => (
+            <div className="cadaPresu">
+              <div>
+                <p>{presupuesto._id}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     );

@@ -46,4 +46,22 @@ export default class Service {
       .get("/works/profesionales")
       .then(response => response.data);
   };
+
+  createRelation = (idUser, idPro) => {
+    return this.service
+      .post("/works/profesionales", { idUser, idPro })
+      .then(response => response.data);
+  };
+
+  findRelationUser = relation => {
+    return this.service
+      .get("/works/perfiluser", relation)
+      .then(response => response.data);
+  };
+
+  findRelationPro = relation => {
+    return this.service
+      .get("/works/perfilpro", relation)
+      .then(response => response.data);
+  };
 }

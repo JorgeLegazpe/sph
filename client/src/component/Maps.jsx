@@ -42,9 +42,6 @@ const MapWithAMarker = withScriptjs(
                 <div>
                   <div>{marker.empresa}</div>
                   <div>{marker.ubication}</div>
-                  <Link to="/chat">
-                    <button>Contactar</button>
-                  </Link>
                 </div>
               </InfoWindow>
             )}
@@ -59,8 +56,8 @@ const MapWithAMarker = withScriptjs(
         onClick={() => props.handleMarkerClick({ a: true })}
       >
         <InfoWindow onCloseClick={props.onToggleOpen}>
-          <div style={{ background: "black", color: "white" }}>
-            <h1>Tu estás aquí</h1>
+          <div>
+            <h5>Tu estás aquí</h5>
           </div>
         </InfoWindow>
       </Marker>

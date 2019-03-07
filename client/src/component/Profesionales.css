@@ -1,6 +1,7 @@
 .general {
   margin: 0;
   padding: 0;
+  background: rgb(235, 233, 233);
 }
 
 .container {
@@ -14,9 +15,10 @@
 .cadaPro {
   border: 1px solid black;
   width: 250px;
-  height: 150px;
+  height: 200px;
   margin: 10px;
   border-radius: 5px;
+  padding: 10px;
 }
 
 .map {
@@ -24,9 +26,18 @@
 }
 
 .title {
-  margin: 10px;
+  margin: auto;
   font-size: 18px;
   font-weight: bold;
+  padding: 2px;
+}
+
+.titleGeneral {
+  margin: auto;
+  font-size: 26px;
+  font-weight: bold;
+  width: 600px;
+  padding: 20px;
 }
 
 .linkChat {
