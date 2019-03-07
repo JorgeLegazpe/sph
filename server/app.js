@@ -96,8 +96,8 @@ app.use("/auth", router);
 const works = require("./routes/works");
 app.use("/works", works);
 
-// const chatRoutes = require("./routes/chat-routes");
-// app.use("/api", chatRoutes);
+const chatRoutes = require("./routes/chat-routes");
+app.use("/", chatRoutes);
 
 app.use((req, res, next) => {
   res.sendFile(__dirname + "/public/index.html");
