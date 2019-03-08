@@ -82,7 +82,7 @@ export default class Profesionales extends Component {
                 <p className="title">{profesional.empresa}</p>
                 <p className="direction">{profesional.ubication}</p>
                 <p>{profesional.phone}</p>
-                <Link to="/works/perfiluser">
+                <Link to="/chat">
                   <button
                     type="button"
                     className="linkChat"

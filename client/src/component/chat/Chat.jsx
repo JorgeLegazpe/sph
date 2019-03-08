@@ -8,32 +8,32 @@ export default class Chat extends Component {
     this.state = { loggedInUser: null, messages: [], input: "" };
   }
 
-  // componentDidMount() {
-  //   // this.socket = io("http://localhost:5000");
+  componentDidMount() {
+    this.socket = io("http://localhost:5000");
 
-  //   this.socket.on("message", msg => {
-  //     console.log(msg);
-  //     this.receiveMessage(msg.msg);
-  //   });
-  // }
+    this.socket.on("message", msg => {
+      console.log(msg);
+      this.receiveMessage(msg.msg);
+    });
+  }
 
-  // receiveMessage(msg) {
-  //   this.setState({
-  //     input: "",
-  //     messages: [...this.state.messages, { msg, type: "server" }]
-  //   });
-  // }
+  receiveMessage(msg) {
+    this.setState({
+      input: "",
+      messages: [...this.state.messages, { msg, type: "Él:" }]
+    });
+  }
 
-  // submitChat() {
-  //   let msg = this.state.input;
-  //   this.setState(
-  //     {
-  //       input: "",
-  //       messages: [...this.state.messages, { msg, type: "me" }]
-  //     },
-  //     () => this.socket.emit("message", { msg, timestamp: Date.now() })
-  //   );
-  // }
+  submitChat() {
+    let msg = this.state.input;
+    this.setState(
+      {
+        input: "",
+        messages: [...this.state.messages, { msg, type: "Yo:" }]
+      },
+      () => this.socket.emit("message", { msg, timestamp: Date.now() })
+    );
+  }
 
   render() {
     console.log(this.props.idUser);
@@ -43,10 +43,11 @@ export default class Chat extends Component {
         className="chatRoom"
         onKeyDown={e => (e.keyCode == 13 ? this.submitChat() : null)}
       >
+        <h1 className="titleChat">Chat de SPH</h1>
         <div className="messages">
           {messages.map((e, i) => (
-            <div className={"msg " + e.type} key={i}>
-              {"msg " + e.type}
+            <div className={e.type} key={i}>
+              {e.type}
               <div className="wrap">{e.msg}</div>
             </div>
           ))}
